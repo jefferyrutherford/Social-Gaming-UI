@@ -55,12 +55,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "proxyConfig": "proxy.conf.json",
           "configurations": {
             "production": {
               "buildTarget": "Social-Gaming-UI:build:production"
             },
             "development": {
-              "buildTarget": "Social-Gaming-UI:build:development"
+              "buildTarget": "Social-Gaming-UI:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
