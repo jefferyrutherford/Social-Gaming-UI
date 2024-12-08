@@ -1,0 +1,22 @@
+<p>players works!</p>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  border-spacing: 1000px
+}
+</style>
+
+
+
+<table style="width:100%">
+  <tr>
+     Users:
+  </tr>
+  <li
+    *ngFor="let post of posts"
+    class="list-group-item">
+    {{ post.id }}
+  </li>
+</table>
+
