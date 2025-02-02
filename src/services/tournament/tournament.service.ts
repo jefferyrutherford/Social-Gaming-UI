@@ -10,15 +10,16 @@ export class TournamentService {
   constructor(private httpClient: HttpClient) { }
 
   //private url = 'http://jsonplaceholder.typicode.com/posts';
-  private url = 'http://localhost:8080/tournament';
+  private url = 'http://localhost:8080/profile/';
 
 
 
 
   getPosts(){
 
-    return this.httpClient.get(this.url);
-
+     this.httpClient.get(this.url).subscribe(res => {
+      console.log('Response message:', res);
+  });
   }
 
 

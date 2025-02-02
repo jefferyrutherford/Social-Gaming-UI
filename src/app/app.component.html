@@ -1,6 +1,19 @@
 
-<a href="https://discord.com/oauth2/authorize?client_id=1143744671235977287&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fprofile&scope=identify">Log In</a>
+<!--<a href="https://discord.com/oauth2/authorize?client_id=1143744671235977287&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fprofile&scope=identify">Log In</a>-->
+<mat-button-toggle (change)="onProfileChange()">{{profileType}}</mat-button-toggle>
 
-<app-players></app-players>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <div class="topnav-right">
+      <a href="#search">Search</a>
+      <a href="profile">Profile</a>
+    </div>
+  </div>
+<!--<app-players></app-players>
+<app-profile></app-profile>-->
 
-<router-outlet />
+
+
+<router-outlet></router-outlet>
