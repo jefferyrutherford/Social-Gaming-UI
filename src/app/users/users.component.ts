@@ -20,11 +20,4 @@ export class UsersComponent {
   }
 
 
-  ngOnInit() {
-    this.userService.getPosts()
-      .subscribe(response => {
-        this.posts = response;
-      });
-  }
-
 }

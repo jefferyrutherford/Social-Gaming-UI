@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {of} from "rxjs";
+import {User} from "../serviceModel";
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,15 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
 
-  private url = 'http://localhost:8080/User/getAll';
+  private url = 'http://localhost:8080/user/getAll';
+
+  data: any;
 
 
 
 
-  getPosts(){
-
-    return this.httpClient.get(this.url);
-
+  getAllUsers(){
+     return this.httpClient.get<User[]>(this.url);
   }
 
 

@@ -17,9 +17,7 @@ export class TournamentService {
 
   getPosts(){
 
-     this.httpClient.get(this.url).subscribe(res => {
-      console.log('Response message:', res);
-  });
+     return this.httpClient.get(this.url);
   }
 
 
