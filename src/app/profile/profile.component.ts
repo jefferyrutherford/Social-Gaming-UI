@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user/user.service";
-import {Observable} from "rxjs";
-import {User} from "../../services/serviceModel";
+import {PlayerCard, User} from "../../services/serviceModel";
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -14,7 +13,6 @@ import {NgForOf} from "@angular/common";
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit{
-  data: any;
   userList: User[] = [];
   constructor(private us : UserService) {
   }

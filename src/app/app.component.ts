@@ -9,11 +9,12 @@ import {MatFabButton} from "@angular/material/button";
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from "@angular/material/button";
 import {ProfileComponent} from "./profile/profile.component";
+import {PlayerCardComponent} from "./player-card/player-card.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, UsersComponent, MatButtonToggle, MatToolbar, MatFabButton, MatIcon, MatButton, ProfileComponent],
+  imports: [CommonModule, RouterOutlet, UsersComponent, MatButtonToggle, MatToolbar, MatFabButton, MatIcon, MatButton, ProfileComponent, PlayerCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

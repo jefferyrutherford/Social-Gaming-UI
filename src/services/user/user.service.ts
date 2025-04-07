@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {of} from "rxjs";
-import {User} from "../serviceModel";
+import {PlayerCard, User} from "../serviceModel";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,11 @@ export class UserService {
   getAllUsers(){
      return this.httpClient.get<User[]>(this.url);
   }
+
+  getPlayerCard(){
+    return this.httpClient.get<PlayerCard[]>("http://localhost:8080/user/" + "getPlayerCard");
+  }
+
 
 
   getHeroes(): ({ name: string; age: number } | { name: string; age: number } | { name: string; age: number })[] {
