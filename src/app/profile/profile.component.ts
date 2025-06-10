@@ -7,11 +7,7 @@ import {JsonPipe} from '@angular/common';
   imports: [
     JsonPipe
   ],
-  template: `
-    <div *ngIf="data">
-      <p>{{ data | json }}</p>
-    </div>
-  `
+  template: ``
 })
 export class ProfileComponent implements OnInit {
   data: any;
