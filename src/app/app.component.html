@@ -5,24 +5,41 @@
   rel="stylesheet"
 />
 
+<mat-toolbar color="primary">
+  <!-- Left-aligned -->
+  <span class="logo">Tournament App</span>
 
-<amplify-authenticator>
-  <ng-template
-    amplifySlot="authenticated"
-    let-user="user"
-    let-signOut="signOut"
-  >
-    <h1>Welcome {{ user.username }}!</h1>
+  <!-- Push the following content to the right -->
+  <span class="spacer"></span>
 
-    <button (click)="signOut()">Sign Out</button>
-  </ng-template>
-</amplify-authenticator>
+  <!-- Right-aligned buttons -->
+  <button mat-button>Home</button>
+  <button mat-button>About</button>
+  <button mat-button>Contact</button>
+  <button mat-icon-button (click)="goToUserPage()" aria-label="User Account">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+
+<!-- Main content -->
+<router-outlet></router-outlet>
+
+<button (click) = "signOut()">Log Out</button>
+
+
+
+<!--
+
 
 
 
 <button (click)="onButtonClick()">Click Me</button>
 
 {{data}}
+-->
 
 
 
