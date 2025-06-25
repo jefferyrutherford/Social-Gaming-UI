@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {environment} from '../../../environments/environment';
 
 
 @Injectable({
@@ -19,10 +20,9 @@ export class AuthService {
   }
 
   logout(): void{
-    //ToDo Clean This Up
-    const clientId = '5ruerc3fsvcck8e1jipodje6r4';
-    const domain = 'testerino.auth.us-east-2.amazoncognito.com';
-    const redirectUri = 'http://localhost:4200/login'; // or your production URL
+    const clientId = environment.cognito.clientId;
+    const domain = environment.cognito.domain;
+    const redirectUri = environment.cognito.redirectUri; // or your production URL
 
     const logoutUrl = `https://${domain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(redirectUri)}`;
 
@@ -31,6 +31,8 @@ export class AuthService {
     sessionStorage.clear();
 
     // Redirect to Cognito logout
+
+    //ToDo, make a sign out call to our backend to update last logged in time.
     console.log('User signed out');
     window.location.href = logoutUrl;
 
