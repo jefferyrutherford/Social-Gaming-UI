@@ -1,0 +1,5 @@
+<div *ngIf="this.playerPic" class="PlayerCard" [class.active]="isActive">
+  <img class="CardImage" [ngSrc]="this.playerPic" alt="player card" height="1000" width="658" (click)="onClick()" />
+  <p>Title</p>
+  <button class="CloseBTN" (click)="onClose($event)" *ngIf="isActive">X</button>
+</div>

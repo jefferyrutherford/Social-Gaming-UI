@@ -1,0 +1,89 @@
+:host {
+  display: block; /* Ensure the host element behaves as a block */
+}
+
+.PlayerCard {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.2), rgba(0, 255, 255, 0.5), rgba(0, 255, 255, 0.2));
+  background-size: 400% 400%;
+  animation: holographic 5s ease-in-out infinite;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transition: all 0.4s ease; /* Smooth transition for all properties */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.PlayerCard.active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  z-index: 1000;
+  width: 200px;
+  height: 300px;
+}
+
+.PlayerCard {
+  pointer-events: auto; /* Ensure the image can receive clicks */
+}
+
+
+/* Holographic animation */
+@keyframes holographic {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Image styling to fit container */
+.CardImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the whole image is visible */
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.3s ease;
+}
+
+
+/* Close button styles */
+.CloseBTN {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2; /* Ensure it's above the image */
+  transition: background-color 0.3s ease;
+}
+
+.CloseBTN:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
