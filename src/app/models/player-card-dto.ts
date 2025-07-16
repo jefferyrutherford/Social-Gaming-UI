@@ -1,5 +1,5 @@
 export interface PlayerCardDto {
   userID: string,
-  playerCardID: number,
+  photoID: number,
   title: string
 }

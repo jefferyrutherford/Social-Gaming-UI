@@ -20,7 +20,15 @@ export class PlayerCardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    changes['playerCard']?.currentValue ? this.playerPic = "/assets/playerCard/" + this.playerCard?.playerCardID + ".jpg" : null;
+    const newCard = changes['playerCard']?.currentValue;
+    console.log(newCard)
+    if (newCard && newCard.photoID) {
+      this.playerPic = `/assets/playerCard/${newCard.photoID}.jpg`;
+      console.log('Set playerPic to:', this.playerPic);
+    } else {
+      console.warn('ngOnChanges called but photoID was missing:', newCard);
+      this.playerPic = '';
+    }
   }
 
   ngOnInit(): void {
