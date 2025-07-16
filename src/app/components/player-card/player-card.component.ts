@@ -1,6 +1,7 @@
 import {Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {NgIf, NgOptimizedImage} from '@angular/common';
 import {PlayerCardDto} from '../../models/player-card-dto';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-player-card',
@@ -23,8 +24,7 @@ export class PlayerCardComponent implements OnInit, OnChanges {
     const newCard = changes['playerCard']?.currentValue;
     console.log(newCard)
     if (newCard && newCard.photoID) {
-      this.playerPic = `/assets/playerCard/${newCard.photoID}.jpg`;
-      console.log('Set playerPic to:', this.playerPic);
+      this.playerPic = environment.imageBaseUrl + newCard.photoID + '.jpg';
     } else {
       console.warn('ngOnChanges called but photoID was missing:', newCard);
       this.playerPic = '';

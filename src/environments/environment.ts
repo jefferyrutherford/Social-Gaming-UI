@@ -6,5 +6,6 @@ export const environment = {
     domain: 'testerino.auth.us-east-2.amazoncognito.com',
     redirectUri: 'http://localhost:4200/login'//,
     //logoutUri: 'http://localhost:4200'
-  }
+  },
+  imageBaseUrl: '/assets/playerCard/'
 };
