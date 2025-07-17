@@ -1,0 +1,21 @@
+/* ToDo this isnt working look into this */
+.sidebar {
+  width: 150px;
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar a.mat-button {
+  color: grey;
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 16px;
+  text-align: left;
+}
+
+.sidebar a.mat-button.active-link {
+  color: white !important;
+  background-color: #3f51b5 !important;
+}

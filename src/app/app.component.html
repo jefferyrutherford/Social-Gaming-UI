@@ -1,18 +1,18 @@
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link
   href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap"
   rel="stylesheet"
 />
 
-<mat-toolbar color="primary">
+<mat-toolbar class="top-toolbar" color="primary">
   <!-- Left-aligned -->
   <span class="logo">Tournament App</span>
+  <button (click)="signOut()">Log Out</button>
 
   <!-- Push the following content to the right -->
+  <!-- ToDo does this need to be moved into a separate component -->
   <span class="spacer"></span>
-
-  <!-- Right-aligned buttons -->
   <button mat-button>Home</button>
   <button mat-button>About</button>
   <button mat-button>Contact</button>
@@ -22,24 +22,14 @@
 </mat-toolbar>
 
 
+<div class="layout-wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
 
 
-<!-- Main content -->
-<router-outlet></router-outlet>
-
-<button (click) = "signOut()">Log Out</button>
-
-
-
-<!--
-
-
-
-
-<button (click)="onButtonClick()">Click Me</button>
-
-{{data}}
--->
 
 
 

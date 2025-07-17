@@ -1,0 +1,11 @@
+<nav class="sidebar">
+  <a
+    mat-button
+    *ngFor="let link of links"
+    [routerLink]="link.path"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    {{ link.label }}
+  </a>
+</nav>
