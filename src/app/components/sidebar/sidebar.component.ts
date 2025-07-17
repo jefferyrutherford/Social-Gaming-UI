@@ -4,6 +4,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {RouterModule, Router, NavigationEnd} from '@angular/router';
 import {filter} from 'rxjs';
 import {NgForOf} from '@angular/common';
+import {AuthService} from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,7 +21,7 @@ export class SidebarComponent implements OnInit {
   currentUrl: string = '';
   links: { label: string; path: string }[] = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private auth: AuthService) {
   }
 
   ngOnInit(): void {
@@ -57,9 +58,8 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  navigateTo(route: string): void {
-    console.log('Navigating to', route);
-    this.router.navigate([`/${route}`]);
+  logOut(): void {
+    this.auth.logout();
   }
 
 }

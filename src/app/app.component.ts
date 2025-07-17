@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {RouterLink, RouterModule, RouterOutlet} from '@angular/router';
 import {AmplifyAuthenticatorModule} from '@aws-amplify/ui-angular';
 import amplifyconfig from '../amplifyconfiguration.json';
 import {Amplify} from 'aws-amplify';
@@ -17,7 +17,7 @@ Amplify.configure(amplifyconfig);
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AmplifyAuthenticatorModule, MatToolbarModule, MatButtonModule, MatIconModule, SidebarComponent, NgIf],
+  imports: [RouterOutlet, AmplifyAuthenticatorModule, MatToolbarModule, MatButtonModule, MatIconModule, SidebarComponent, RouterLink, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

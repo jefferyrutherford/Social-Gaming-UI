@@ -14,13 +14,11 @@ mat-toolbar {
   font-size: 18px;
 }
 
-/* This ensures the container is a horizontal flex row */
+/* This is your layout wrapper around sidebar + main content */
 .layout-wrapper {
   display: flex;
   flex-direction: row;
-  /*ToDo understand this calculation better.  */
-  height: calc(100vh - 64px); /* Subtract toolbar height */
-  width: 100%;
+  height: calc(100vh - 64px); /* Adjust if your toolbar is a different height */
   overflow: hidden;
 }
 
@@ -33,9 +31,9 @@ app-sidebar {
 }
 
 /* Main content expands and stays to the right */
+/* Optional: make sure main content fills remaining space */
 .main-content {
   flex-grow: 1;
-  background-color: #f0f0f0;
-  padding: 16px;
   overflow-y: auto;
+  background-color: #f0f0f0;
 }
