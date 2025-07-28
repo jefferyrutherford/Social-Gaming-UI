@@ -7,7 +7,7 @@ import {environment} from '../../../environments/environment';
 })
 export class AuthService {
 
-  private tokenKey = 'CognitoIdentityServiceProvider.5ruerc3fsvcck8e1jipodje6r4.e10bb590-5051-7079-f569-96e8246c917c.idToken'; // Change if you know Cognito's storage key
+  private tokenKey = 'CognitoIdentityServiceProvider.7nb439s4gah8m4j7frd0diqk0i.216bd550-9031-701b-230a-a52296e18fa8.idToken'; // Change if you know Cognito's storage key
 
   constructor() {}
 
@@ -34,6 +34,7 @@ export class AuthService {
 
     //ToDo, make a sign out call to our backend to update last logged in time.
     console.log('User signed out');
+    //window.location.href = "http://localhost:4200/login";
     window.location.href = logoutUrl;
 
 
