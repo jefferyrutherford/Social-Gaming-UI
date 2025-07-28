@@ -1,0 +1,40 @@
+.sidebar {
+  width: 150px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Important! Sidebar fills its container */
+  padding: 8px 0;
+}
+
+.sidebar a.mat-button {
+  color: lightgrey;
+  justify-content: flex-start;
+  padding-left: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar a.active-link {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.bottom-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-out-bttn {
+  margin-top: auto;
+  color: red;
+  font-weight: bold;
+}
+
+.admin-link {
+  color: lightgrey;
+  font-weight: 500;
+}
+
+

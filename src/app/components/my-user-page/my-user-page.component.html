@@ -1,5 +1,18 @@
 <p>my-user-page works!</p>
 
+<app-player-card *ngIf="playerCard" [playerCard]="playerCard"></app-player-card>
 
-<img src="assets/playerCard/1.jpg" alt="player card" />
+<table mat-table [dataSource]="playerCardEntries">
+  <ng-container matColumnDef="key">
+    <th mat-header-cell *matHeaderCellDef>Property</th>
+    <td mat-cell *matCellDef="let element">{{ element.key }}</td>
+  </ng-container>
 
+  <ng-container matColumnDef="value">
+    <th mat-header-cell *matHeaderCellDef>Value</th>
+    <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['key', 'value']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['key', 'value']"></tr>
+</table>
