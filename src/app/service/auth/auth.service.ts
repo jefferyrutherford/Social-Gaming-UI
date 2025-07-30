@@ -6,13 +6,23 @@ import {environment} from '../../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-
-  private tokenKey = 'CognitoIdentityServiceProvider.7nb439s4gah8m4j7frd0diqk0i.216bd550-9031-701b-230a-a52296e18fa8.idToken'; // Change if you know Cognito's storage key
+  private clientId = environment.cognito.clientId;
+  private domain = environment.cognito.domain;
+  private redirectUri = environment.cognito.redirectUri;
 
   constructor() {}
 
-  getIdToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+  getIdToken(): string | undefined {
+
+    const keys = Object.keys(localStorage);
+
+    console.log(JSON.stringify(keys));
+    return keys.find(k=>{
+      //The idToken is built with the clientID.userID.*.idToken, no need to overthink it and it can change.
+      // Just grab the id token.
+        return k.startsWith("CognitoIdentityServiceProvider") && k.endsWith("idToken")
+    }) || undefined
+    ;
   }
 
   isLoggedIn(): boolean {
@@ -20,11 +30,9 @@ export class AuthService {
   }
 
   logout(): void{
-    const clientId = environment.cognito.clientId;
-    const domain = environment.cognito.domain;
-    const redirectUri = environment.cognito.redirectUri; // or your production URL
 
-    const logoutUrl = `https://${domain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(redirectUri)}`;
+
+    const logoutUrl = `https://${this.domain}/logout?client_id=${this.clientId}&logout_uri=${encodeURIComponent(this.redirectUri)}`;
 
     // Clear local/session storage
     localStorage.clear();
@@ -40,14 +48,4 @@ export class AuthService {
 
   }
 
-  saveToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token);
-  }
-
-  decodeToken(): any {
-    const token = this.getIdToken();
-    if (!token) return null;
-    const payload = token.split('.')[1];
-    return JSON.parse(atob(payload));
-  }
 }
